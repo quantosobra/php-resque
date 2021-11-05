@@ -346,8 +346,8 @@ class Resque_Worker
 			return;
 		}
 
-		pcntl_signal(SIGTERM, array($this, 'shutDownNow'));
-		pcntl_signal(SIGINT, array($this, 'shutDownNow'));
+		pcntl_signal(SIGTERM, array($this, 'shutdown'));
+		pcntl_signal(SIGINT, array($this, 'shutdown'));
 		pcntl_signal(SIGQUIT, array($this, 'shutdown'));
 		pcntl_signal(SIGUSR1, array($this, 'killChild'));
 		pcntl_signal(SIGUSR2, array($this, 'pauseProcessing'));
